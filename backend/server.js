@@ -3,7 +3,7 @@ const express = require('express');
 const products = require('./data/products');
 const app = express();
 
-const PORT = 5000 || process.env.PORT;
+const PORT = 5000;
 
 app.get('/', (req, res) => {
   res.send('API IS RUNNING....');
