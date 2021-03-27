@@ -11,7 +11,7 @@ import {
   Image
 } from 'react-bootstrap';
 import Message from '../Components/Message';
-import { addToCart } from '../actions/cartAction';
+import { addToCart, removeFromCart } from '../actions/cartAction';
 
 function CartScreen({ match, location, history }) {
   const productId = match.params.id;
@@ -31,7 +31,8 @@ function CartScreen({ match, location, history }) {
   }, [dispatch, productId, qty]);
 
   const removeFromCartHandler = id => {
-    console.log('Remove');
+    dispatch(removeFromCart(id));
+    // console.log('remove');
   };
 
   const checkOutHandler = () => {
@@ -79,7 +80,7 @@ function CartScreen({ match, location, history }) {
                     <Button
                       type='button'
                       variant='light'
-                      onClick={removeFromCartHandler(item.product)}>
+                      onClick={() => removeFromCartHandler(item.product)}>
                       <i className='fas fa-trash'></i>
                     </Button>
                   </Col>
