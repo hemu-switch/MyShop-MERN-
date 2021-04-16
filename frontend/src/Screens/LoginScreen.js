@@ -35,7 +35,9 @@ function LoginScreen({ location, history }) {
   return (
     <FormContainer>
       <h1>Sign Up</h1>
-      {error && <Message variant='danger'>{error}</Message>}
+      {error && (
+        <Message variant='danger'>{'Invalid Email or Password'}</Message>
+      )}
       {loading && <Loader />}
       <Form onSubmit={submitHandler}>
         <Form.Group controlId='email'>
